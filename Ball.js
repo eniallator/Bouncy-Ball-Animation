@@ -1,9 +1,19 @@
 class Ball {
-    constructor(x, y, radius, xVelocity = 0) {
+    constructor(x, y, radius, xVel = 0, yVel = 0) {
         this.x = x
         this.y = y
         this.radius = radius
-        this.xVelocity = xVelocity
+        this.xVel = xVel
+        this.yVel = yVel
+    }
+
+    applyGravity(gravity) {
+        this.yVel += gravity
+    }
+
+    updatePos() {
+        this.x += this.xVel
+        this.y += this.yVel
     }
 
     draw(ctx) {
