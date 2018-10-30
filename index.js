@@ -17,7 +17,7 @@ function updatePhysics() {
 }
 
 function updateSpawning() {
-    if (balls.length > maxBalls) {
+    if (balls.length >= maxBalls) {
         if (balls[0].y - radius >= canvas.height) initBalls(10)
     } else if (balls[0].y + radius >= canvas.height) {
         const newBalls = []
