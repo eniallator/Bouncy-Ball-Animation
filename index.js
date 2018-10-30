@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas')
 const ctx = canvas.getContext('2d')
 
 const radius = 20
-const balls = [{ x: canvas.width / 2, y: -radius }]
+const balls = [new Ball(canvas.width / 2, -radius, radius)]
 
 function run() {
     ctx.fillStyle = 'black'
@@ -10,9 +10,7 @@ function run() {
 
     for (let ball of balls) {
         ctx.fillStyle = 'white'
-        ctx.beginPath()
-        ctx.arc(ball.x, ball.y, radius, 0, 2 * Math.PI, false)
-        ctx.fill()
+        ball.draw(ctx)
     }
 
     requestAnimationFrame(run)
